@@ -11,7 +11,7 @@ const projects = [
     title: "Overlink",
     blurb:
       "A Chrome extension that pulls the important bits — URLs, QR codes, event details, contact info — straight out of online presentations, so you never have to chase down the slides.",
-    stack: ["Chrome Extension", "TypeScript", "Next.js"],
+    stack: ["Chrome Extension", "TypeScript", "Next.js", "Tesseract.js", "Claude API"],
     href: "https://overlink-web.vercel.app/",
   },
   {
@@ -38,8 +38,7 @@ export default function Home() {
           </h1>
           <h2 className="mt-5 text-lg sm:text-2xl text-slate-300 max-w-2xl">
             Computer Science student at the{" "}
-            <span className="text-white font-medium">University of Virginia</span>,
-            building software that&apos;s careful, fast, and a little bit curious.
+            <span className="text-white font-medium">University of Virginia</span>
           </h2>
           <div className="mt-10 flex flex-wrap gap-3">
             <a
@@ -108,6 +107,8 @@ export default function Home() {
               <a
                 key={p.title}
                 href={p.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="card rounded-xl p-6 block group"
               >
                 <div className="flex items-start justify-between">
@@ -155,12 +156,16 @@ export default function Home() {
             </a>
             <a
               href="https://github.com/SeungwooDY"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-5 py-2.5 rounded-lg border border-white/15 text-slate-200 hover:bg-white/5 transition"
             >
               GitHub
             </a>
             <a
               href="https://www.linkedin.com/in/seungwoo-yoon/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-5 py-2.5 rounded-lg border border-white/15 text-slate-200 hover:bg-white/5 transition"
             >
               LinkedIn
