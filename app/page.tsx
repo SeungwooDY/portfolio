@@ -1,29 +1,25 @@
 import Navbar from "../components/Navbar/Navbar";
 
 const skills = [
-  { group: "Languages", items: ["TypeScript", "Python", "Java", "C", "SQL"] },
-  { group: "Frameworks", items: ["React", "Next.js", "Node.js", "Tailwind"] },
+  { group: "Languages", items: ["Javascript/TypeScript", "Python", "Java", "C", "SQL"] },
+  { group: "Frameworks", items: ["React", "Next.js", "Express.js", "Node.js", "Tailwind"] },
   { group: "Tools", items: ["Git", "Docker", "Postgres", "Linux"] },
 ];
 
 const projects = [
   {
-    title: "Project One",
-    blurb: "A short, honest description of what it does and why it matters.",
-    stack: ["Next.js", "TypeScript", "Postgres"],
-    href: "#",
+    title: "Overlink",
+    blurb:
+      "A Chrome extension that pulls the important bits — URLs, QR codes, event details, contact info — straight out of online presentations, so you never have to chase down the slides.",
+    stack: ["Chrome Extension", "TypeScript", "Next.js"],
+    href: "https://overlink-web.vercel.app/",
   },
   {
-    title: "Project Two",
-    blurb: "Another build — focused on performance and a clean developer experience.",
-    stack: ["Python", "FastAPI", "Docker"],
-    href: "#",
-  },
-  {
-    title: "Project Three",
-    blurb: "An experiment that taught me more than any tutorial could.",
-    stack: ["React", "Node", "WebSockets"],
-    href: "#",
+    title: "Sonic Boom Simulator",
+    blurb:
+      "Built for a NASA client to spark student curiosity about the future of commercial supersonic flight. Reshape an aircraft, hear how loud your boom gets, and compare your design on the global leaderboard.",
+    stack: ["Next.js", "React", "Simulation"],
+    href: "https://sonic-boom-simulation.vercel.app/",
   },
 ];
 
@@ -152,19 +148,19 @@ export default function Home() {
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a
-              href="mailto:your.email@virginia.edu"
+              href="mailto:tnp4kt@virginia.edu"
               className="px-5 py-2.5 rounded-lg bg-gradient-to-r from-purple-500 to-cyan-500 text-white font-medium hover:opacity-90 transition"
             >
               Email me
             </a>
             <a
-              href="https://github.com/"
+              href="https://github.com/SeungwooDY"
               className="px-5 py-2.5 rounded-lg border border-white/15 text-slate-200 hover:bg-white/5 transition"
             >
               GitHub
             </a>
             <a
-              href="https://linkedin.com/"
+              href="https://www.linkedin.com/in/seungwoo-yoon/"
               className="px-5 py-2.5 rounded-lg border border-white/15 text-slate-200 hover:bg-white/5 transition"
             >
               LinkedIn
