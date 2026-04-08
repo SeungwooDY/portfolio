@@ -1,9 +1,10 @@
 import Navbar from "../components/Navbar/Navbar";
 
 const skills = [
-  { group: "Languages", items: ["Javascript/TypeScript", "Python", "Java", "C", "SQL"] },
+  { group: "Languages", items: ["Javascript/TypeScript", "Python", "Java", "C", "SQL", "Assembly", "Lean4"] },
   { group: "Frameworks", items: ["React", "Next.js", "Express.js", "Node.js", "Tailwind"] },
-  { group: "Tools", items: ["Git", "Docker", "Postgres", "Linux"] },
+  { group: "APIs", items: ["Gemini", "Claude", "OpenWeather", "yFinance", "Stripe"] },
+  { group: "Tools", items: ["Git", "Docker", "Postgres"] },
 ];
 
 const projects = [
@@ -31,7 +32,7 @@ export default function Home() {
         {/* Hero */}
         <section id="home" className="min-h-[88vh] flex flex-col justify-center py-24">
           <p className="text-sm uppercase tracking-[0.25em] text-cyan-300/80 mb-4">
-            Hello, world —
+            Hello —
           </p>
           <h1 className="text-5xl sm:text-7xl font-bold leading-tight tracking-tight">
             I&apos;m <span className="gradient-text">Seungwoo Yoon</span>.
