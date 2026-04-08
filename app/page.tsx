@@ -73,22 +73,23 @@ export default function Home() {
             side quest.
           </p>
 
-          <div className="mt-10 grid gap-4 sm:grid-cols-3">
-            {skills.map((s) => (
-              <div key={s.group} className="card rounded-xl p-5">
-                <div className="text-xs uppercase tracking-wider text-cyan-300/80 mb-3">
+          <div className="mt-10 space-y-6">
+            {skills.map((s, idx) => (
+              <div key={s.group}>
+                <div className="text-xs uppercase tracking-wider text-cyan-300/80 mb-3 pl-1">
                   {s.group}
                 </div>
-                <ul className="flex flex-wrap gap-2">
-                  {s.items.map((i) => (
-                    <li
-                      key={i}
-                      className="text-sm px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-slate-200"
-                    >
-                      {i}
-                    </li>
-                  ))}
-                </ul>
+                <div className="marquee">
+                  <div className="marquee-viewport">
+                    <div className={`marquee-track ${idx % 2 === 1 ? "reverse" : ""}`}>
+                      {[...s.items, ...s.items, ...s.items, ...s.items].map((item, i) => (
+                        <span key={`${item}-${i}`} className="skill-pill">
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
