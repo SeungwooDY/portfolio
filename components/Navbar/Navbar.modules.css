@@ -1,30 +1,47 @@
 .navbar {
   display: flex;
   width: 100%;
-  background-color: antiquewhite;
   position: sticky;
   top: 0;
   z-index: 100;
-}
-  
-.navbar a {
-  flex: 1;
-  display: flex;
-  justify-content: center;
+  padding: 14px 32px;
+  gap: 8px;
+  justify-content: flex-end;
   align-items: center;
-  text-decoration: none;
-  padding: 15px 0;
-  transition: background-color 0.2s ease;
+  background: rgba(10, 10, 15, 0.6);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
-  
-.navbar a:hover {
-  background-color: rgb(78, 0, 100);
-  color: white;
+
+.navbar .brand {
+  margin-right: auto;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #ededed;
+  text-decoration: none;
+  font-size: 1.05rem;
+}
+
+.navbar .brand span {
+  background: linear-gradient(90deg, #a855f7, #06b6d4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .nav-button {
   position: relative;
-  color: rgb(0, 0, 0);
+  color: #cbd5e1;
+  text-decoration: none;
+  padding: 8px 14px;
+  font-size: 0.92rem;
+  border-radius: 8px;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.nav-button:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .nav-button::after {
@@ -33,12 +50,12 @@
   width: 0%;
   height: 2px;
   left: 50%;
-  bottom: -3px;
+  bottom: 2px;
   transform: translateX(-50%);
-  background-color: black;
+  background: linear-gradient(90deg, #a855f7, #06b6d4);
   transition: width 0.25s ease;
 }
 
 .nav-button:hover::after {
-  width: 100%;
+  width: 60%;
 }
