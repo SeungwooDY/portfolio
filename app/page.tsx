@@ -27,7 +27,7 @@ const projects: Project[] = [
       "TypeScript",
       "Next.js",
       "Tesseract.js",
-      "Claude API",
+      "Anthropic API",
     ],
     clickable: true,
     href: "https://overlink-web.vercel.app/",
@@ -38,7 +38,7 @@ const projects: Project[] = [
     title: "Sonic Boom Simulator",
     blurb:
       "Built for a NASA client to spark student curiosity about the future of commercial supersonic flight. Reshape an aircraft, hear how loud your boom gets, and compare your design on the global leaderboard.",
-    stack: ["Next.js", "React", "Python"],
+    stack: ["Next.js", "Python"],
     clickable: true,
     href: "https://sonic-boom-simulation.vercel.app/",
     role: "Full-stack",
@@ -48,7 +48,7 @@ const projects: Project[] = [
     title: "Stock'd",
     blurb:
       "A HooHacks project: a stock-shock simulator using yFinance data to model how sudden moves in individual companies or sectors ripple through an S&P 500 portfolio. Crunched 250,000+ Pearson correlation calculations to map cross-company relationships.",
-    stack: ["Python", "yFinance", "Data"],
+    stack: ["Next.js", "Python", "yFinance API", "Gemini API"],
     clickable: false,
     role: "HooHacks · March 2026",
   },
@@ -57,7 +57,7 @@ const projects: Project[] = [
     title: "Archr",
     blurb:
       "Shipped an in-app email feature on top of Google's Gmail API, including a secure OAuth 2.0 flow (token exchange, refresh handling, scope management) and Google Cloud Console setup for compliant authorization. Also refactored the site's routing for maintainability.",
-    stack: ["Gmail API", "OAuth 2.0", "Google Cloud"],
+    stack: ["Gmail API", "OAuth 2.0", "Google Cloud", "Anthropic API"],
     clickable: false,
     role: "Software Engineer · Oct 2025 – Jan 2026",
   },
@@ -66,7 +66,7 @@ const projects: Project[] = [
     title: "CrisisKit",
     blurb:
       "A HoyaHacks project that uses the Gemini API with structured JSON prompts to generate context-aware emergency supply recommendations, paired with OpenWeather data for location-specific conditions — aiming to reduce panic buying and inequitable access to essentials.",
-    stack: ["Gemini API", "OpenWeather", "JSON prompts"],
+    stack: ["Gemini API", "OpenWeather"],
     clickable: false,
     role: "HoyaHacks · January 2026",
   },
@@ -87,49 +87,49 @@ const skills: SkillGroup[] = [
         name: "JavaScript/TypeScript",
         description:
           "The language of the web — powers almost every interactive site, including this one. TypeScript adds type safety on top.",
-        usedIn: ["overlink", "sonic", "archr"],
+        usedIn: ["overlink", "sonic", "archr", "crisiskit", "stockd"],
       },
       {
         name: "Python",
         description:
           "A readable, versatile language I reach for when working with data, physics, or quick prototypes.",
-        usedIn: ["stockd", "sonic", "crisiskit"],
+        usedIn: ["stockd", "sonic"],
       },
       {
         name: "Java",
         description:
           "A statically-typed, object-oriented workhorse used across enterprise software and Android.",
-        usedIn: [],
+        usedIn: ["classwork"],
       },
       {
         name: "C",
         description:
           "A low-level systems language that runs close to the hardware — great for understanding how computers really work.",
-        usedIn: [],
+        usedIn: ["classwork"],
       },
       {
         name: "C++",
         description:
           "C with object-oriented features and higher-level abstractions. I used it heavily in FRC/FTC robotics.",
-        usedIn: [],
+        usedIn: ["robotics"],
       },
       {
         name: "SQL",
         description:
           "The standard language for querying and shaping relational databases.",
-        usedIn: [],
+        usedIn: ["overlink", "sonic", "stockd", "archr", "crisiskit"],
       },
       {
         name: "Assembly",
         description:
           "The lowest-level human-readable code, one step above raw machine instructions.",
-        usedIn: [],
+        usedIn: ["classwork"],
       },
       {
         name: "Lean4",
         description:
           "A modern theorem prover and functional language for formal mathematics and verified programs.",
-        usedIn: [],
+        usedIn: ["classwork"],
       },
     ],
   },
@@ -140,31 +140,31 @@ const skills: SkillGroup[] = [
         name: "React",
         description:
           "A JavaScript library for building interactive UIs out of small, reusable components.",
-        usedIn: ["overlink", "sonic"],
+        usedIn: ["overlink", "sonic", "archr", "crisiskit", "stockd"],
       },
       {
         name: "Next.js",
         description:
           "A production-ready React framework with routing, server rendering, and sensible defaults baked in.",
-        usedIn: ["overlink", "sonic"],
+        usedIn: ["overlink", "sonic", "archr", "crisiskit", "stockd"],
       },
       {
         name: "Express.js",
         description:
           "A minimal Node.js framework for building REST APIs and backend services. Part of my Forge training stack.",
-        usedIn: [],
+        usedIn: ["Forge"],
       },
       {
         name: "Node.js",
         description:
           "A runtime that lets JavaScript run outside the browser — used for servers, build tools, and scripting.",
-        usedIn: [],
+        usedIn: ["Forge"],
       },
       {
         name: "Tailwind CSS",
         description:
           "A utility-first CSS framework that lets you style directly in your markup without writing custom CSS.",
-        usedIn: ["overlink", "sonic"],
+        usedIn: ["overlink", "stockd", "archr", "crisiskit"],
       },
     ],
   },
@@ -172,16 +172,16 @@ const skills: SkillGroup[] = [
     group: "APIs",
     items: [
       {
-        name: "Claude API",
+        name: "Anthropic API",
         description:
           "Anthropic's LLM API for structured reasoning, extraction, and generation.",
-        usedIn: ["overlink"],
+        usedIn: ["overlink", "archr"],
       },
       {
         name: "Gemini API",
         description:
           "Google's multimodal LLM API for text, image, and structured JSON outputs.",
-        usedIn: ["crisiskit"],
+        usedIn: ["crisiskit", "stockd"],
       },
       {
         name: "Gmail API",
@@ -211,7 +211,7 @@ const skills: SkillGroup[] = [
         name: "Stripe",
         description:
           "Developer-friendly payments infrastructure for accepting money on the web.",
-        usedIn: [],
+        usedIn: ["overlink"],
       },
     ],
   },
@@ -234,13 +234,13 @@ const skills: SkillGroup[] = [
         name: "Supabase",
         description:
           "An open-source Firebase alternative built on Postgres — auth, realtime, and storage included.",
-        usedIn: [],
+        usedIn: ["archr", "stockd", "sonic", "overlink", "crisiskit"],
       },
       {
         name: "Firebase",
         description:
           "Google's backend-as-a-service: NoSQL data, authentication, and hosting in one SDK. Part of my Forge training stack.",
-        usedIn: [],
+        usedIn: ["Forge"],
       },
       {
         name: "Tesseract.js",
@@ -261,7 +261,7 @@ const skills: SkillGroup[] = [
         usedIn: ["overlink", "sonic"],
       },
       {
-        name: "Claude Code",
+        name: "Anthropic Code",
         description:
           "Anthropic's terminal-based AI coding assistant — a pair programmer in the CLI.",
         usedIn: [],
@@ -363,11 +363,14 @@ export default function Home() {
             Where I{"'"}m at right now.
           </h2>
           <div className="card rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center gap-6">
-            <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500 to-cyan-500 flex items-center justify-center text-2xl">
-              <span className="relative flex h-3 w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
-              </span>
+            <div className="flex-shrink-0 relative w-16 h-16 rounded-xl overflow-hidden border border-white/10 bg-white">
+              <Image
+                src="/ForgeLogo.jpg"
+                alt="Forge"
+                fill
+                sizes="64px"
+                className="object-contain"
+              />
             </div>
             <div className="flex-1">
               <div className="text-xs uppercase tracking-wider text-cyan-300/80 mb-1">
