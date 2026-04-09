@@ -8,6 +8,7 @@ export default function Navbar() {
       </a>
       <a className="nav-button" href="#home">Home</a>
       <a className="nav-button" href="#about-me">About</a>
+      <a className="nav-button" href="#currently">Currently</a>
       <a className="nav-button" href="#projects">Projects</a>
       <a className="nav-button" href="#contact">Contact</a>
     </nav>
