@@ -21,7 +21,7 @@ const projects: Project[] = [
     id: "overlink",
     title: "Overlink",
     blurb:
-      "A Chrome extension that pulls the important bits — URLs, QR codes, event details, contact info — straight out of online presentations, so you never have to chase down the slides.",
+      "A Chrome extension that pulls important information (URLs, QR codes, event details, contact info) straight out of online presentations, so you never have to chase down the slides.",
     stack: [
       "Chrome Extension",
       "TypeScript",
@@ -65,7 +65,7 @@ const projects: Project[] = [
     id: "crisiskit",
     title: "CrisisKit",
     blurb:
-      "A HoyaHacks project that uses the Gemini API with structured JSON prompts to generate context-aware emergency supply recommendations, paired with OpenWeather data for location-specific conditions — aiming to reduce panic buying and inequitable access to essentials.",
+      "A HoyaHacks project that uses the Gemini API with structured JSON prompts to generate context-aware emergency supply recommendations, paired with OpenWeather data for location-specific conditions, aiming to reduce panic buying and inequitable access to essentials.",
     stack: ["Gemini API", "OpenWeather"],
     clickable: false,
     role: "HoyaHacks · January 2026",
@@ -385,9 +385,9 @@ export default function Home() {
               <p className="text-slate-300 mt-3 leading-relaxed max-w-2xl">
                 An immersive fellowship pairing soft-skills and technical
                 training with a summer internship at one of 200+ partner
-                companies. I{"'"}m building full-stack web apps end-to-end —
+                companies. I{"'"}m building full-stack web apps end-to-end {"("}
                 React frontends, Express REST APIs, Firebase-backed data, and
-                MVC-driven architecture — while practicing agile/scrum and
+                MVC-driven architecture{")"} while practicing agile/scrum and
                 client-facing delivery from proposal to final presentation.
               </p>
               <div className="mt-4 flex flex-wrap gap-2">
