@@ -91,57 +91,37 @@ export default function SkillsMarquee({
     <div className="space-y-6">
       {groups.map((g, gIdx) => (
         <div key={g.group}>
-          <div className="text-xs uppercase tracking-wider text-cyan-300/80 mb-3 pl-1">
+          <div className="text-xs font-medium uppercase tracking-wide text-gray-400 mb-3">
             {g.group}
           </div>
-          <div className="marquee">
-            <div className="marquee-viewport">
-              <div
-                className={`marquee-track ${gIdx % 2 === 1 ? "reverse" : ""}`}
-                style={{
-                  animationPlayState: active ? "paused" : "running",
-                }}
-              >
-                {[...g.items, ...g.items, ...g.items, ...g.items].map(
-                  (item, i) => {
-                    const realIdx = g.items.findIndex(
-                      (x) => x.name === item.name
-                    );
-                    const isActive =
-                      active != null &&
-                      active.groupIdx === gIdx &&
-                      active.itemIdx === realIdx;
-                    return (
-                      <button
-                        key={`${item.name}-${i}`}
-                        data-skill-pill
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          const rect = (
-                            e.currentTarget as HTMLElement
-                          ).getBoundingClientRect();
-                          if (isActive) {
-                            setActive(null);
-                          } else {
-                            setActive({
-                              groupIdx: gIdx,
-                              itemIdx: realIdx,
-                              rect,
-                            });
-                          }
-                        }}
-                        className={`skill-pill ${
-                          isActive ? "skill-pill-active" : ""
-                        }`}
-                        type="button"
-                      >
-                        {item.name}
-                      </button>
-                    );
-                  }
-                )}
-              </div>
-            </div>
+          <div className="flex flex-wrap gap-2">
+            {g.items.map((item, itemIdx) => {
+              const isActive =
+                active != null &&
+                active.groupIdx === gIdx &&
+                active.itemIdx === itemIdx;
+              return (
+                <button
+                  key={item.name}
+                  data-skill-pill
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    const rect = (
+                      e.currentTarget as HTMLElement
+                    ).getBoundingClientRect();
+                    if (isActive) {
+                      setActive(null);
+                    } else {
+                      setActive({ groupIdx: gIdx, itemIdx, rect });
+                    }
+                  }}
+                  className={`skill-pill ${isActive ? "skill-pill-active" : ""}`}
+                  type="button"
+                >
+                  {item.name}
+                </button>
+              );
+            })}
           </div>
         </div>
       ))}
@@ -150,17 +130,17 @@ export default function SkillsMarquee({
         <div
           ref={popoverRef}
           style={popoverStyle}
-          className="fixed z-50 p-4 rounded-xl border border-white/15 bg-[#0f0f18]/95 backdrop-blur-xl shadow-2xl shadow-purple-500/20"
+          className="fixed z-50 p-4 rounded-xl border border-gray-200 bg-white shadow-lg"
         >
-          <div className="font-semibold text-white text-base mb-1">
+          <div className="font-semibold text-gray-900 text-base mb-1">
             {activeSkill.name}
           </div>
-          <p className="text-sm text-slate-300 leading-relaxed mb-3">
+          <p className="text-sm text-gray-600 leading-relaxed mb-3">
             {activeSkill.description}
           </p>
           {activeProjects.length > 0 ? (
             <>
-              <div className="text-[10px] uppercase tracking-wider text-purple-300/80 mb-2">
+              <div className="text-[10px] uppercase tracking-wide text-gray-400 mb-2">
                 Used in
               </div>
               <div className="flex flex-wrap gap-1.5">
@@ -171,14 +151,14 @@ export default function SkillsMarquee({
                       href={p.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-xs px-2 py-1 rounded-md bg-purple-500/15 border border-purple-500/40 text-purple-200 hover:bg-purple-500/25 transition"
+                      className="text-xs px-2 py-1 rounded-md bg-blue-50 border border-blue-200 text-blue-700 hover:bg-blue-100 transition"
                     >
                       {p.title} ↗
                     </a>
                   ) : (
                     <span
                       key={p.id}
-                      className="text-xs px-2 py-1 rounded-md bg-white/5 border border-white/10 text-slate-300"
+                      className="text-xs px-2 py-1 rounded-md bg-gray-50 border border-gray-200 text-gray-600"
                     >
                       {p.title}
                     </span>
@@ -187,7 +167,7 @@ export default function SkillsMarquee({
               </div>
             </>
           ) : (
-            <div className="text-xs text-slate-500 italic">
+            <div className="text-xs text-gray-400 italic">
               Foundational skill — not tied to a specific portfolio project.
             </div>
           )}

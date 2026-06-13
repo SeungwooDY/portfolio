@@ -14,7 +14,7 @@ export default function PickleballTrigger({
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="underline decoration-dotted decoration-cyan-400/70 underline-offset-4 hover:text-cyan-300 transition"
+        className="underline decoration-dotted decoration-gray-400 underline-offset-4 hover:text-gray-900 transition"
         title="Psst — it's clickable"
       >
         {children}

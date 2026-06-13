@@ -314,9 +314,6 @@ export default function PickleballModal({
         >
           ×
         </button>
-        <h3 className="text-xs uppercase tracking-[0.25em] text-cyan-300/80 mb-2">
-          Easter Egg
-        </h3>
         <h2 className="text-2xl font-semibold text-white mb-4">
           Pickleball Pong
         </h2>
@@ -329,7 +326,7 @@ export default function PickleballModal({
                 onClick={() => setMode(m)}
                 className={`px-3 py-1 rounded-md transition ${
                   mode === m
-                    ? "bg-purple-500/30 text-white"
+                    ? "bg-white/15 text-white"
                     : "text-slate-400 hover:text-white"
                 }`}
               >
@@ -344,7 +341,7 @@ export default function PickleballModal({
                 onClick={() => setDifficulty(d)}
                 className={`px-3 py-1 rounded-md transition capitalize ${
                   difficulty === d
-                    ? "bg-cyan-500/30 text-white"
+                    ? "bg-white/15 text-white"
                     : "text-slate-400 hover:text-white"
                 }`}
               >
@@ -354,7 +351,7 @@ export default function PickleballModal({
           </div>
           <button
             onClick={startGame}
-            className="ml-auto px-4 py-1.5 rounded-lg bg-gradient-to-r from-purple-500 to-cyan-500 text-white font-medium hover:opacity-90 transition"
+            className="ml-auto px-4 py-1.5 rounded-lg bg-white text-gray-900 font-medium hover:bg-gray-200 transition"
           >
             {playing ? "Restart" : "Start"}
           </button>
@@ -386,7 +383,7 @@ export default function PickleballModal({
               </div>
               <button
                 onClick={startGame}
-                className="px-5 py-2 rounded-lg bg-gradient-to-r from-purple-500 to-cyan-500 text-white font-medium hover:opacity-90 transition"
+                className="px-5 py-2 rounded-lg bg-white text-gray-900 font-medium hover:bg-gray-200 transition"
               >
                 Play again
               </button>

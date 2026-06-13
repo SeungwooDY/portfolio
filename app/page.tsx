@@ -280,63 +280,52 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main className="max-w-5xl mx-auto px-6 sm:px-8">
+      <main className="max-w-3xl mx-auto px-6 sm:px-8">
         {/* Hero */}
         <section
           id="home"
-          className="min-h-[88vh] flex flex-col sm:flex-row sm:items-center gap-10 py-24"
+          className="flex flex-col sm:flex-row sm:items-center gap-8 pt-20 pb-16"
         >
-          <div className="flex-1">
-            <p className="text-sm uppercase tracking-[0.25em] text-cyan-300/80 mb-4">
-              Hello —
-            </p>
-            <h1 className="text-5xl sm:text-7xl font-bold leading-tight tracking-tight">
-              I{"'"}m <span className="gradient-text">Seungwoo Yoon</span>.
-            </h1>
-            <h2 className="mt-5 text-lg sm:text-2xl text-slate-300 max-w-2xl">
-              Computer Science student at the{" "}
-              <span className="text-white font-medium">
-                University of Virginia
-              </span>
-            </h2>
-            <div className="mt-10 flex flex-wrap gap-3">
-              <a
-                href="#projects"
-                className="px-5 py-2.5 rounded-lg bg-gradient-to-r from-purple-500 to-cyan-500 text-white font-medium hover:opacity-90 transition"
-              >
-                See my work
-              </a>
-              <a
-                href="#contact"
-                className="px-5 py-2.5 rounded-lg border border-white/15 text-slate-200 hover:bg-white/5 transition"
-              >
-                Get in touch
-              </a>
-            </div>
-          </div>
           <div className="flex-shrink-0 mx-auto sm:mx-0">
-            <div className="relative w-56 h-56 sm:w-72 sm:h-72 rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-purple-500/10">
+            <div className="relative w-28 h-28 rounded-full overflow-hidden border border-gray-200">
               <Image
                 src="/me.jpg"
                 alt="Seungwoo Yoon"
                 fill
                 priority
-                sizes="(max-width: 640px) 224px, 288px"
+                sizes="112px"
                 className="object-cover"
               />
+            </div>
+          </div>
+          <div className="flex-1 text-center sm:text-left">
+            <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight text-gray-900">
+              Seungwoo Yoon
+            </h1>
+            <p className="mt-2 text-lg text-gray-500">
+              Computer Science student at the University of Virginia
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3 justify-center sm:justify-start">
+              <a
+                href="#projects"
+                className="px-4 py-2 rounded-lg bg-gray-900 text-white text-sm font-medium hover:bg-gray-700 transition"
+              >
+                See my work
+              </a>
+              <a
+                href="#contact"
+                className="px-4 py-2 rounded-lg border border-gray-300 text-gray-700 text-sm font-medium hover:bg-gray-100 transition"
+              >
+                Get in touch
+              </a>
             </div>
           </div>
         </section>
 
         {/* About */}
-        <section id="about-me" className="py-24">
-          <h3 className="text-sm uppercase tracking-[0.25em] text-purple-300/80 mb-3">
-            About
-          </h3>
-          <h2 className="text-3xl sm:text-4xl font-semibold mb-6">
-            A little about me.
-          </h2>
-          <p className="text-slate-300 text-lg leading-relaxed max-w-3xl">
+        <section id="about-me" className="py-12 border-t border-gray-200">
+          <h2 className="text-xl font-semibold text-gray-900 mb-4">About</h2>
+          <p className="text-gray-600 leading-relaxed">
             I study computer science at UVA and love building solutions to any
             idea that crosses my mind. I primarily build full-stack web
             applications but I{"'"}m also enthusiastic about learning and
@@ -344,45 +333,37 @@ export default function Home() {
             systems, game design, or{" "}
             <PickleballTrigger>Pickleball</PickleballTrigger>.
           </p>
-          <p className="text-slate-500 text-sm mt-4 max-w-3xl">
+          <p className="text-gray-400 text-sm mt-3">
             Tip: click any skill below to see a plain-English description and
             the projects where I{"'"}ve used it.
           </p>
 
-          <div className="mt-10">
+          <div className="mt-8">
             <SkillsMarquee groups={skills} projects={skillProjects} />
           </div>
         </section>
 
         {/* Currently */}
-        <section id="currently" className="py-24">
-          <h3 className="text-sm uppercase tracking-[0.25em] text-purple-300/80 mb-3">
-            Currently
-          </h3>
-          <h2 className="text-3xl sm:text-4xl font-semibold mb-8">
-            Where I{"'"}m at right now.
-          </h2>
-          <div className="card rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center gap-6">
-            <div className="flex-shrink-0 relative w-16 h-16 rounded-xl overflow-hidden border border-white/10 bg-white">
+        <section id="currently" className="py-12 border-t border-gray-200">
+          <h2 className="text-xl font-semibold text-gray-900 mb-5">Currently</h2>
+          <div className="card p-6 flex flex-col sm:flex-row gap-5">
+            <div className="flex-shrink-0 relative w-14 h-14 rounded-lg overflow-hidden border border-gray-200 bg-white">
               <Image
                 src="/ForgeLogo.jpg"
                 alt="Forge"
                 fill
-                sizes="64px"
+                sizes="56px"
                 className="object-contain"
               />
             </div>
             <div className="flex-1">
-              <div className="text-xs uppercase tracking-wider text-cyan-300/80 mb-1">
-                Currently
-              </div>
-              <div className="text-xl sm:text-2xl font-semibold text-white">
+              <div className="text-lg font-semibold text-gray-900">
                 SWE Fellow · Forge Launch Internship Program
               </div>
-              <div className="text-slate-400 mt-1">
+              <div className="text-gray-400 text-sm mt-0.5">
                 Training now · Internship placement Summer 2026
               </div>
-              <p className="text-slate-300 mt-3 leading-relaxed max-w-2xl">
+              <p className="text-gray-600 mt-3 leading-relaxed">
                 An immersive fellowship pairing soft-skills and technical
                 training with a summer internship at one of 200+ partner
                 companies. I{"'"}m building full-stack web apps end-to-end {"("}
@@ -402,7 +383,7 @@ export default function Home() {
                 ].map((t) => (
                   <span
                     key={t}
-                    className="text-xs px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-slate-300"
+                    className="text-xs px-2 py-0.5 rounded-md bg-gray-50 border border-gray-200 text-gray-600"
                   >
                     {t}
                   </span>
@@ -413,50 +394,41 @@ export default function Home() {
         </section>
 
         {/* Projects */}
-        <section id="projects" className="py-24">
-          <h3 className="text-sm uppercase tracking-[0.25em] text-purple-300/80 mb-3">
-            Selected Work
-          </h3>
-          <h2 className="text-3xl sm:text-4xl font-semibold mb-2">
-            Things I{"'"}ve built.
-          </h2>
-          <p className="text-slate-500 text-sm mb-10">
-            Cards with an <span className="text-purple-300">arrow</span> are
-            live — click through. Others are case studies.
+        <section id="projects" className="py-12 border-t border-gray-200">
+          <h2 className="text-xl font-semibold text-gray-900 mb-1">Projects</h2>
+          <p className="text-gray-400 text-sm mb-6">
+            Cards with an arrow are live — click through. Others are case
+            studies.
           </p>
-          <div className="grid gap-5 sm:grid-cols-2">
+          <div className="grid gap-4 sm:grid-cols-2">
             {projects.map((p) => {
               const content = (
                 <>
                   <div className="flex items-start justify-between gap-3">
                     <div>
-                      <h4 className="text-xl font-semibold text-white">
-                        {p.title}
-                      </h4>
+                      <h3 className="font-semibold text-gray-900">{p.title}</h3>
                       {p.role && (
-                        <div className="text-xs text-slate-500 mt-0.5">
+                        <div className="text-xs text-gray-400 mt-0.5">
                           {p.role}
                         </div>
                       )}
                     </div>
                     {p.clickable ? (
-                      <span className="text-slate-400 group-hover:text-white group-hover:translate-x-0.5 transition text-xl">
-                        →
-                      </span>
+                      <span className="text-gray-400 text-lg">→</span>
                     ) : (
-                      <span className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-slate-400">
+                      <span className="text-[10px] uppercase tracking-wide px-2 py-0.5 rounded-md bg-gray-50 border border-gray-200 text-gray-400">
                         Case study
                       </span>
                     )}
                   </div>
-                  <p className="mt-3 text-slate-300 leading-relaxed">
+                  <p className="mt-3 text-sm text-gray-600 leading-relaxed">
                     {p.blurb}
                   </p>
                   <div className="mt-4 flex flex-wrap gap-2">
                     {p.stack.map((t) => (
                       <span
                         key={t}
-                        className="text-xs px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-slate-300"
+                        className="text-xs px-2 py-0.5 rounded-md bg-gray-50 border border-gray-200 text-gray-600"
                       >
                         {t}
                       </span>
@@ -470,12 +442,12 @@ export default function Home() {
                   href={p.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="card rounded-xl p-6 block group"
+                  className="card p-5 block"
                 >
                   {content}
                 </a>
               ) : (
-                <div key={p.id} className="card rounded-xl p-6">
+                <div key={p.id} className="card p-5">
                   {content}
                 </div>
               );
@@ -484,21 +456,16 @@ export default function Home() {
         </section>
 
         {/* Contact */}
-        <section id="contact" className="py-24">
-          <h3 className="text-sm uppercase tracking-[0.25em] text-purple-300/80 mb-3">
-            Contact
-          </h3>
-          <h2 className="text-3xl sm:text-4xl font-semibold mb-6">
-            Let{"'"}s build something.
-          </h2>
-          <p className="text-slate-300 text-lg max-w-2xl">
+        <section id="contact" className="py-12 border-t border-gray-200">
+          <h2 className="text-xl font-semibold text-gray-900 mb-4">Contact</h2>
+          <p className="text-gray-600">
             I{"'"}m always up for a good problem, an interesting internship, or
             just a conversation about something you{"'"}re excited about.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-6 flex flex-wrap gap-3">
             <a
               href="mailto:tnp4kt@virginia.edu"
-              className="px-5 py-2.5 rounded-lg bg-gradient-to-r from-purple-500 to-cyan-500 text-white font-medium hover:opacity-90 transition"
+              className="px-4 py-2 rounded-lg bg-gray-900 text-white text-sm font-medium hover:bg-gray-700 transition"
             >
               Email me
             </a>
@@ -506,7 +473,7 @@ export default function Home() {
               href="https://github.com/SeungwooDY"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-2.5 rounded-lg border border-white/15 text-slate-200 hover:bg-white/5 transition"
+              className="px-4 py-2 rounded-lg border border-gray-300 text-gray-700 text-sm font-medium hover:bg-gray-100 transition"
             >
               GitHub
             </a>
@@ -514,14 +481,14 @@ export default function Home() {
               href="https://www.linkedin.com/in/seungwoo-yoon/"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-2.5 rounded-lg border border-white/15 text-slate-200 hover:bg-white/5 transition"
+              className="px-4 py-2 rounded-lg border border-gray-300 text-gray-700 text-sm font-medium hover:bg-gray-100 transition"
             >
               LinkedIn
             </a>
           </div>
         </section>
 
-        <footer className="py-10 text-center text-sm text-slate-500 border-t border-white/5">
+        <footer className="py-8 text-center text-sm text-gray-400 border-t border-gray-200">
           © {new Date().getFullYear()} Seungwoo Yoon
         </footer>
       </main>
