@@ -166,6 +166,12 @@ const skills: SkillGroup[] = [
           "A utility-first CSS framework that lets you style directly in your markup without writing custom CSS.",
         usedIn: ["overlink", "stockd", "archr", "crisiskit"],
       },
+      {
+        name: "MCP",
+        description: 
+          "Open-source standard created by Anthropic that allows AI assistants to securely connect directly to external data sources and tools",
+        usedIn: ["Within"],
+      },
     ],
   },
   {
