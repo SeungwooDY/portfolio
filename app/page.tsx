@@ -100,7 +100,7 @@ const roles: Role[] = [
     id: "within",
     org: "Within",
     title: "Software Engineer Intern",
-    meta: "Fairfax, VA (Remote) · Summer 2026 intern → part-time",
+    meta: "Fairfax, VA (Remote) - May 2026 → Present",
     bullets: [
       "Built and published Within's TypeScript SDK for MCP tool-call analytics, cutting vendor integration from ~58 lines of code to 6 by redesigning the API around a client/instrument pattern.",
       "Shipped an explicit intent-capture feature via runtime Zod schema injection, requiring AI agents to state the reason for every tool call — recorded as a first-class analytics signal and stripped before reaching vendor code.",
@@ -123,7 +123,7 @@ const roles: Role[] = [
     id: "forge-coordinator",
     org: "Forge",
     title: "Engineering Coordinator",
-    meta: "Incoming · 2026–27",
+    meta: "Charlottesville, VA (Remote) - September 2026 → Present",
     blurb:
       "Working with Forge's directors and Director of Engineering to scope, coordinate, and deliver engineering tasks across the organization.",
     logo: "/images/ForgeLogo.jpg",
@@ -134,7 +134,7 @@ const roles: Role[] = [
     id: "hoohacks-tech",
     org: "HooHacks",
     title: "Tech Committee",
-    meta: "Incoming · 2026–27",
+    meta: "Charlottesville, VA - September 2026 → Present",
     blurb:
       "Building software to streamline how UVA's flagship hackathon is run, from event logistics to the participant experience.",
     logo: "/images/HooHacks.png",
