@@ -34,6 +34,16 @@ const projects: Project[] = [
     role: "Developer · March 2026 – present",
   },
   {
+    id: "aperture",
+    title: "Aperture",
+    blurb:
+      "A VTHacks project: a Generative Engine Optimization (GEO) tool that diagnoses how a local business's site gets crawled, extracted, and cited by AI answer engines like Perplexity and ChatGPT. I built the diagnostics engine — fetching robots.txt for per-bot crawler access, detecting UA-based cloaking and rendering gaps, parsing JSON-LD structured data, and computing a weighted GEO score paired with an actionable suggestions report.",
+    stack: ["TypeScript", "Node.js", "Cheerio", "Zod", "GEO scoring"],
+    clickable: true,
+    href: "https://geo-pp4v.onrender.com/",
+    role: "VTHacks · September 2026",
+  },
+  {
     id: "sonic",
     title: "Sonic Boom Simulator",
     blurb:
@@ -72,6 +82,63 @@ const projects: Project[] = [
   },
 ];
 
+type Role = {
+  id: string;
+  org: string;
+  title: string;
+  meta: string;
+  blurb?: string;
+  bullets?: string[];
+  logo?: string;
+  initials?: string;
+  tags?: string[];
+};
+
+const roles: Role[] = [
+  {
+    id: "within",
+    org: "Within",
+    title: "Software Engineer",
+    meta: "Fairfax, VA (Remote) · Summer 2026 intern → part-time",
+    bullets: [
+      "Built and published Within's TypeScript SDK for MCP tool-call analytics, cutting vendor integration from ~58 lines of code to 6 by redesigning the API around a client/instrument pattern.",
+      "Shipped an explicit intent-capture feature via runtime Zod schema injection, requiring AI agents to state the reason for every tool call — recorded as a first-class analytics signal and stripped before reaching vendor code.",
+      "Fixed a PII redaction bypass where free-text context fields skipped scrubbing; added tuned inline PII regex patterns and 19 unit tests, verified end-to-end against production storage.",
+      "Built a vendor-side data pipeline syncing CRM data from vendors' own infrastructure, hashing identifiers (SHA-256) pre-transmission so Within never holds credentials or raw PII — supplying core inputs for the downstream ML training pipeline.",
+    ],
+    logo: "/images/WithinLogo.jpeg",
+    tags: [
+      "TypeScript",
+      "MCP",
+      "Zod",
+      "SDK design",
+      "PII redaction",
+      "SHA-256",
+      "ML pipeline",
+    ],
+  },
+  {
+    id: "forge-coordinator",
+    org: "Forge",
+    title: "Engineering Coordinator",
+    meta: "Incoming · 2026–27",
+    blurb:
+      "Working with Forge's directors and Director of Engineering to scope, coordinate, and deliver engineering tasks across the organization.",
+    logo: "/images/ForgeLogo.jpg",
+    tags: ["Coordination", "Engineering ops"],
+  },
+  {
+    id: "hoohacks-tech",
+    org: "HooHacks",
+    title: "Tech Committee",
+    meta: "Incoming · 2026–27",
+    blurb:
+      "Building software to streamline how UVA's flagship hackathon is run, from event logistics to the participant experience.",
+    logo: "/images/HooHacks.png",
+    tags: ["Software", "Internal tooling"],
+  },
+];
+
 const skillProjects: SkillProject[] = projects.map((p) => ({
   id: p.id,
   title: p.title,
@@ -87,7 +154,7 @@ const skills: SkillGroup[] = [
         name: "JavaScript/TypeScript",
         description:
           "The language of the web — powers almost every interactive site, including this one. TypeScript adds type safety on top.",
-        usedIn: ["overlink", "sonic", "archr", "crisiskit", "stockd"],
+        usedIn: ["overlink", "aperture", "sonic", "archr", "crisiskit", "stockd"],
       },
       {
         name: "Python",
@@ -158,7 +225,7 @@ const skills: SkillGroup[] = [
         name: "Node.js",
         description:
           "A runtime that lets JavaScript run outside the browser — used for servers, build tools, and scripting.",
-        usedIn: ["Forge"],
+        usedIn: ["aperture", "Forge"],
       },
       {
         name: "Tailwind CSS",
@@ -228,13 +295,13 @@ const skills: SkillGroup[] = [
         name: "Git",
         description:
           "The version control system that tracks every change and makes collaboration sane.",
-        usedIn: ["overlink", "sonic", "stockd", "archr", "crisiskit"],
+        usedIn: ["overlink", "aperture", "sonic", "stockd", "archr", "crisiskit"],
       },
       {
         name: "GitHub",
         description:
           "The platform for hosting Git repos, reviewing code, and shipping software together.",
-        usedIn: ["overlink", "sonic", "stockd", "archr", "crisiskit"],
+        usedIn: ["overlink", "aperture", "sonic", "stockd", "archr", "crisiskit"],
       },
       {
         name: "Supabase",
@@ -295,7 +362,7 @@ export default function Home() {
           <div className="flex-shrink-0 mx-auto sm:mx-0">
             <div className="relative w-28 h-28 rounded-full overflow-hidden border border-gray-200">
               <Image
-                src="/me.jpg"
+                src="/images/me.jpg"
                 alt="Seungwoo Yoon"
                 fill
                 priority
@@ -335,8 +402,7 @@ export default function Home() {
             I study computer science at UVA and love building solutions to any
             idea that crosses my mind. I primarily build full-stack web
             applications but I{"'"}m also enthusiastic about learning and
-            expanding my skillset, whether that{"'"}s in areas like embedded
-            systems, game design, or{" "}
+            expanding my skillset, whether that{"'"}s in areas like MCP, game design, or{" "}
             <PickleballTrigger>Pickleball</PickleballTrigger>.
           </p>
           <p className="text-gray-400 text-sm mt-3">
@@ -352,50 +418,65 @@ export default function Home() {
         {/* Currently */}
         <section id="currently" className="py-12 border-t border-gray-200">
           <h2 className="text-xl font-semibold text-gray-900 mb-5">Currently</h2>
-          <div className="card p-6 flex flex-col sm:flex-row gap-5">
-            <div className="flex-shrink-0 relative w-14 h-14 rounded-lg overflow-hidden border border-gray-200 bg-white">
-              <Image
-                src="/ForgeLogo.jpg"
-                alt="Forge"
-                fill
-                sizes="56px"
-                className="object-contain"
-              />
-            </div>
-            <div className="flex-1">
-              <div className="text-lg font-semibold text-gray-900">
-                SWE Fellow · Forge Launch Internship Program
+          <div className="space-y-4">
+            {roles.map((r) => (
+              <div
+                key={r.id}
+                className="card p-6 flex flex-col sm:flex-row gap-5"
+              >
+                <div className="flex-shrink-0 relative w-14 h-14 rounded-lg overflow-hidden border border-gray-200 bg-white flex items-center justify-center">
+                  {r.logo ? (
+                    <Image
+                      src={r.logo}
+                      alt={r.org}
+                      fill
+                      sizes="56px"
+                      className="object-contain"
+                    />
+                  ) : (
+                    <span className="text-xl font-semibold text-gray-400">
+                      {r.initials}
+                    </span>
+                  )}
+                </div>
+                <div className="flex-1">
+                  <div className="text-lg font-semibold text-gray-900">
+                    {r.title} · {r.org}
+                  </div>
+                  <div className="text-gray-400 text-sm mt-0.5">{r.meta}</div>
+                  {r.blurb && (
+                    <p className="text-gray-600 mt-3 leading-relaxed">
+                      {r.blurb}
+                    </p>
+                  )}
+                  {r.bullets && (
+                    <ul className="mt-3 space-y-2">
+                      {r.bullets.map((b, i) => (
+                        <li
+                          key={i}
+                          className="text-gray-600 text-sm leading-relaxed flex gap-2"
+                        >
+                          <span className="text-gray-300 flex-shrink-0">•</span>
+                          <span>{b}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  {r.tags && (
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {r.tags.map((t) => (
+                        <span
+                          key={t}
+                          className="text-xs px-2 py-0.5 rounded-md bg-gray-50 border border-gray-200 text-gray-600"
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
               </div>
-              <div className="text-gray-400 text-sm mt-0.5">
-                Training now · Internship placement Summer 2026
-              </div>
-              <p className="text-gray-600 mt-3 leading-relaxed">
-                An immersive fellowship pairing soft-skills and technical
-                training with a summer internship at one of 200+ partner
-                companies. I{"'"}m building full-stack web apps end-to-end {"("}
-                React frontends, Express REST APIs, Firebase-backed data, and
-                MVC-driven architecture{")"} while practicing agile/scrum and
-                client-facing delivery from proposal to final presentation.
-              </p>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {[
-                  "React",
-                  "JavaScript",
-                  "Node.js",
-                  "Express.js",
-                  "Firebase",
-                  "GitHub",
-                  "Agile/Scrum",
-                ].map((t) => (
-                  <span
-                    key={t}
-                    className="text-xs px-2 py-0.5 rounded-md bg-gray-50 border border-gray-200 text-gray-600"
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </div>
+            ))}
           </div>
         </section>
 
