@@ -512,8 +512,7 @@ export default function Home() {
         <section id="projects" className="py-12 border-t border-gray-200">
           <h2 className="text-xl font-semibold text-gray-900 mb-1">Projects</h2>
           <p className="text-gray-400 text-sm mb-6">
-            Cards with an arrow are live — click through. Others are case
-            studies.
+            Cards with an arrow are live, click through them!
           </p>
           <div className="grid gap-4 sm:grid-cols-2">
             {projects.map((p) => {
