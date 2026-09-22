@@ -92,13 +92,14 @@ type Role = {
   logo?: string;
   initials?: string;
   tags?: string[];
+  href?: string;
 };
 
 const roles: Role[] = [
   {
     id: "within",
     org: "Within",
-    title: "Software Engineer",
+    title: "Software Engineer Intern",
     meta: "Fairfax, VA (Remote) · Summer 2026 intern → part-time",
     bullets: [
       "Built and published Within's TypeScript SDK for MCP tool-call analytics, cutting vendor integration from ~58 lines of code to 6 by redesigning the API around a client/instrument pattern.",
@@ -107,6 +108,7 @@ const roles: Role[] = [
       "Built a vendor-side data pipeline syncing CRM data from vendors' own infrastructure, hashing identifiers (SHA-256) pre-transmission so Within never holds credentials or raw PII — supplying core inputs for the downstream ML training pipeline.",
     ],
     logo: "/images/WithinLogo.jpeg",
+    href: "https://www.getwith.in/",
     tags: [
       "TypeScript",
       "MCP",
@@ -125,6 +127,7 @@ const roles: Role[] = [
     blurb:
       "Working with Forge's directors and Director of Engineering to scope, coordinate, and deliver engineering tasks across the organization.",
     logo: "/images/ForgeLogo.jpg",
+    href: "https://joinforge.co/",
     tags: ["Coordination", "Engineering ops"],
   },
   {
@@ -135,6 +138,7 @@ const roles: Role[] = [
     blurb:
       "Building software to streamline how UVA's flagship hackathon is run, from event logistics to the participant experience.",
     logo: "/images/HooHacks.png",
+    href: "https://team.hoohacks.io/",
     tags: ["Software", "Internal tooling"],
   },
 ];
@@ -419,64 +423,88 @@ export default function Home() {
         <section id="currently" className="py-12 border-t border-gray-200">
           <h2 className="text-xl font-semibold text-gray-900 mb-5">Currently</h2>
           <div className="space-y-4">
-            {roles.map((r) => (
-              <div
-                key={r.id}
-                className="card p-6 flex flex-col sm:flex-row gap-5"
-              >
-                <div className="flex-shrink-0 relative w-14 h-14 rounded-lg overflow-hidden border border-gray-200 bg-white flex items-center justify-center">
-                  {r.logo ? (
-                    <Image
-                      src={r.logo}
-                      alt={r.org}
-                      fill
-                      sizes="56px"
-                      className="object-contain"
-                    />
-                  ) : (
-                    <span className="text-xl font-semibold text-gray-400">
-                      {r.initials}
-                    </span>
-                  )}
-                </div>
-                <div className="flex-1">
-                  <div className="text-lg font-semibold text-gray-900">
-                    {r.title} · {r.org}
+            {roles.map((r) => {
+              const content = (
+                <>
+                  <div className="flex-shrink-0 relative w-14 h-14 rounded-lg overflow-hidden border border-gray-200 bg-white flex items-center justify-center">
+                    {r.logo ? (
+                      <Image
+                        src={r.logo}
+                        alt={r.org}
+                        fill
+                        sizes="56px"
+                        className="object-contain"
+                      />
+                    ) : (
+                      <span className="text-xl font-semibold text-gray-400">
+                        {r.initials}
+                      </span>
+                    )}
                   </div>
-                  <div className="text-gray-400 text-sm mt-0.5">{r.meta}</div>
-                  {r.blurb && (
-                    <p className="text-gray-600 mt-3 leading-relaxed">
-                      {r.blurb}
-                    </p>
-                  )}
-                  {r.bullets && (
-                    <ul className="mt-3 space-y-2">
-                      {r.bullets.map((b, i) => (
-                        <li
-                          key={i}
-                          className="text-gray-600 text-sm leading-relaxed flex gap-2"
-                        >
-                          <span className="text-gray-300 flex-shrink-0">•</span>
-                          <span>{b}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                  {r.tags && (
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      {r.tags.map((t) => (
-                        <span
-                          key={t}
-                          className="text-xs px-2 py-0.5 rounded-md bg-gray-50 border border-gray-200 text-gray-600"
-                        >
-                          {t}
-                        </span>
-                      ))}
+                  <div className="flex-1">
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="text-lg font-semibold text-gray-900">
+                        {r.title} · {r.org}
+                      </div>
+                      {r.href && (
+                        <span className="text-gray-400 text-lg">→</span>
+                      )}
                     </div>
-                  )}
+                    <div className="text-gray-400 text-sm mt-0.5">{r.meta}</div>
+                    {r.blurb && (
+                      <p className="text-gray-600 mt-3 leading-relaxed">
+                        {r.blurb}
+                      </p>
+                    )}
+                    {r.bullets && (
+                      <ul className="mt-3 space-y-2">
+                        {r.bullets.map((b, i) => (
+                          <li
+                            key={i}
+                            className="text-gray-600 text-sm leading-relaxed flex gap-2"
+                          >
+                            <span className="text-gray-300 flex-shrink-0">
+                              •
+                            </span>
+                            <span>{b}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                    {r.tags && (
+                      <div className="mt-4 flex flex-wrap gap-2">
+                        {r.tags.map((t) => (
+                          <span
+                            key={t}
+                            className="text-xs px-2 py-0.5 rounded-md bg-gray-50 border border-gray-200 text-gray-600"
+                          >
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </>
+              );
+              return r.href ? (
+                <a
+                  key={r.id}
+                  href={r.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="card p-6 flex flex-col sm:flex-row gap-5"
+                >
+                  {content}
+                </a>
+              ) : (
+                <div
+                  key={r.id}
+                  className="card p-6 flex flex-col sm:flex-row gap-5"
+                >
+                  {content}
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </section>
 
